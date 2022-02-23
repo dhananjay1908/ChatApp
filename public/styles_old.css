@@ -1,0 +1,121 @@
+* {
+    box-sizing: border-box;
+    padding: 0%;
+    margin: 0%;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-image: url("/wallpaper.jpg");
+    background-repeat: no-repeat;
+    background-size: cover; */
+    background-color: #626466;
+}
+
+.main {
+    width: 60%;
+    margin-top: 4vh;
+    border-radius: 10px;
+    box-shadow: 5px 5px #2d2f31;   
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 8vh;
+    background-color: #34373a;
+    border-radius: 10px 10px 0 0;
+    color: white;
+}
+
+.chatArea {
+    display: flex;
+    flex-direction: column;
+    height: 75vh;
+    /* background-color: #a2d2ff; */
+    background-color: black;
+    overflow-y: scroll;
+}
+
+.incomingMessage {
+    align-self: flex-start;
+    /* background-color: #52b69a; */
+    background-color: #545756;
+    margin: 20px;
+    margin-bottom: 0;
+    width: 40%;
+    color: white;
+    font-weight: 700;
+    position: relative;
+    border-radius: 5px;
+}
+
+.outgoingMessage {
+    align-self: flex-end;
+    /* background-color: #7fb94d; */
+    background-color: rgb(27, 27, 218);
+    margin: 20px;
+    margin-bottom: 0;
+    width: 40%;
+    color: white;
+    font-weight: 700;
+    position: relative;
+    border-radius: 5px;
+}
+
+p {
+    padding: 5px;
+}
+
+.textArea {
+    display: flex;
+    flex-direction: row;
+    justify-content: stretch;
+    align-items: center;
+}
+
+textarea {
+    width: 100%;
+    border-radius: 0 0 10px 10px;
+    height: 40px;
+}
+
+h4 {
+    padding-left: 5px;
+}
+
+.incomingMessage:before {
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border-left: 10px solid #545756;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #545756;
+    border-bottom: 10px solid transparent;
+    right: -19px;
+    top: 6px;
+  }
+
+  .outgoingMessage:before {
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border-left: 10px solid transparent;
+    border-right: 10px solid rgb(27, 27, 218);
+    border-top: 10px solid rgb(27, 27, 218);
+    border-bottom: 10px solid transparent;
+    left: -19px;
+    top: 6px;
+  }
+  
+  @media only screen and (max-width: 800px) {
+    .main {
+        width: 90vw;
+    }
+  }
