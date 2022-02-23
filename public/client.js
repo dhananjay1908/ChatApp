@@ -79,20 +79,18 @@ function appendMessage(msg, type) {
 
 socket.on("message", (msg) => {
   appendMessage(msg, "chat-message-left");
+  socket.emit("refresh");
   scroll();
 });
 
 socket.on("userList",(userArr) => {
   let id = 1;
+  document.getElementById("side-panel").innerHTML = "";
   userArr.forEach(element => {
     activeUsers(id,element,"add"); //add all users to the
     id++;
   });
 })
-
-socket.on("user", (id,user,command) => {
-  activeUsers(id,user,command);
-});
 
 function scroll() {
   messageArea.scrollTop = messageArea.scrollHeight;
