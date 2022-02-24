@@ -16,9 +16,26 @@ http.listen(PORT, () => {
 
 const io = require("socket.io")(http);
 
+let userArr = [];
+
 io.on("connection", (socket) => {
   console.log("connected...");
+
   socket.on("message", (msg) => {
     socket.broadcast.emit("message", msg);
+  });
+
+  socket.on("user", (user) => {
+    userArr.push(user);
+    socket.broadcast.emit("userList", userArr);
+  });
+
+  socket.on("refresh",()=>{
+    socket.broadcast.emit("userList", userArr);
+  });
+
+  socket.on("disconnect", (user) => {
+    userArr.splice(userArr.indexOf(user),1); //delete user from array
+    socket.broadcast.emit("userList", userArr);
   });
 });
